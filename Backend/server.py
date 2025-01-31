@@ -23,6 +23,7 @@ def user_login():
         email = data.get('email')
         password = data.get('password')
         result = get_user_details(email, password)
+        
         return json.loads(json_util.dumps(result))
     else:
         return jsonify({'message': 'Invalid Hash'})
@@ -41,6 +42,7 @@ def create_user():
         mobile_number = data.get('mobile_number')
         location = data.get('location')
         result = register_user(email, password, name, mobile_number, location)
+        
         return json.loads(json_util.dumps(result))
 
 @app.route('/api/admin', methods=['GET'])
